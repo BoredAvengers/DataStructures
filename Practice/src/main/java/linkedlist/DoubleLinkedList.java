@@ -3,7 +3,7 @@ package linkedlist;
 
 /**
  *  Test class to check Doubly Linked List
- * @author roopesh
+ * @author roopesh and aerk
  * 
  */
 
