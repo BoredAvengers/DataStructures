@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *  Test class to check Doubly Linked List
@@ -7,7 +9,7 @@ package linkedlist;
  * 
  */
 
-public class DoubleLinkedList {
+public class DoubleLinkedList extends LinkedList{
 	
 	
 	private class Node{
@@ -48,6 +50,7 @@ public class DoubleLinkedList {
 		 }
 		 
 	 }
+	 
 	 
 	 
 	 
