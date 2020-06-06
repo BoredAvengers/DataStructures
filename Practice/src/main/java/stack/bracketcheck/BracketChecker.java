@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BracketChecker {
+	static HashMap<String, String> reversedBrackets = new HashMap<String, String>();
+
 
 	/*
 	 * 1. get input as a linked list - get input as string - import string into *
@@ -16,18 +18,8 @@ public class BracketChecker {
 	 * is not same as head element of second stack - second stack is not null and
 	 * first stack becomes null
 	 */
-
-	public static void main(String[] args) {
-
-		HashMap<String, String> reversedBrackets = new HashMap<String, String>();
-		reversedBrackets.put("(", ")");
-		reversedBrackets.put("[", "]");
-		reversedBrackets.put("{", "}");
-
-		Scanner inputs = new Scanner(System.in);
-		String endOfInput = inputs.nextLine();
-		inputs.close();
-		char[] bracketsArray = endOfInput.toCharArray();
+	public static void validateBracketSequence(String sequence) {
+		char[] bracketsArray = sequence.toCharArray();
 		LinkedList<String> bracketSequence = new LinkedList<String>();
 
 		for (char bracket : bracketsArray) {
@@ -39,37 +31,35 @@ public class BracketChecker {
 
 		while (!bracketSequence.isEmpty()) {
 			String headOfList1 = bracketSequence.pop();
-			if (secondLL.isEmpty()) {
+			if (secondLL.isEmpty() || reversedBrackets.containsKey(headOfList1)) {
 				secondLL.push(headOfList1);
 			} else {
-				if (reversedBrackets.containsKey(headOfList1)) {
-					secondLL.push(headOfList1);
-				} else {
-					String secondLLHead = secondLL.pop();
-					if (!reversedBrackets.containsKey(secondLLHead)) {
-						System.out.println("invalid 1");
-						invalidFlag = true;
-					}else
-					if (reversedBrackets.get(secondLLHead).equals(headOfList1)) {
-						continue;
-					} else {
-						System.out.println("invalid 1");
-						invalidFlag = true;
-					}
+				String secondLLHead = secondLL.pop();
+				if (!headOfList1.equals(reversedBrackets.get(secondLLHead))) {
+					invalidFlag = true;
+					break;
 				}
-
-			}
-
-		}
-
-		if (!invalidFlag) {
-			if (bracketSequence.isEmpty() && secondLL.isEmpty()) {
-				System.out.println("valid");
-			} else {
-				System.out.println("invalid");
 			}
 		}
 
+		if (secondLL.isEmpty() && !invalidFlag) {
+			System.out.println(sequence + " is valid");
+		} else {
+			System.out.println(sequence + " is invalid");
+		}
+	}
+	public static void main(String[] args) {
+		reversedBrackets.put("(", ")");
+		reversedBrackets.put("[", "]");
+		reversedBrackets.put("{", "}");
+
+
+		validateBracketSequence("[{}]");	
+		validateBracketSequence("[[]");
+		validateBracketSequence("[][]");
+		validateBracketSequence("[]]");
+		validateBracketSequence("[][[");
+		validateBracketSequence("[{}][]");
 	}
 
 }
