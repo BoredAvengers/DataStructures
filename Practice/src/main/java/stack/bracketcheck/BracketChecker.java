@@ -1,9 +1,7 @@
 package stack.bracketcheck;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class BracketChecker {
 	static HashMap<String, String> reversedBrackets = new HashMap<String, String>();
@@ -31,9 +29,12 @@ public class BracketChecker {
 
 		while (!bracketSequence.isEmpty()) {
 			String headOfList1 = bracketSequence.pop();
+			
+			// push only opening brackets into second LL
 			if (secondLL.isEmpty() || reversedBrackets.containsKey(headOfList1)) {
 				secondLL.push(headOfList1);
 			} else {
+				// compare if the closing brackets in stack 1 matches opening in stack 2
 				String secondLLHead = secondLL.pop();
 				if (!headOfList1.equals(reversedBrackets.get(secondLLHead))) {
 					invalidFlag = true;
@@ -48,6 +49,7 @@ public class BracketChecker {
 			System.out.println(sequence + " is invalid");
 		}
 	}
+	
 	public static void main(String[] args) {
 		reversedBrackets.put("(", ")");
 		reversedBrackets.put("[", "]");
