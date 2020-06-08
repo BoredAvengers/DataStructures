@@ -3,9 +3,6 @@ org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.5
 org.eclipse.jdt.core.compiler.compliance=1.5
 org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled
 org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
-<<<<<<< HEAD
-=======
 org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=ignore
->>>>>>> branch 'aerk' of https://github.com/BoredAvengers/DataStructures.git
 org.eclipse.jdt.core.compiler.release=disabled
 org.eclipse.jdt.core.compiler.source=1.5
