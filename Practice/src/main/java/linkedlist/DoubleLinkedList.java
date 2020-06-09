@@ -1,5 +1,12 @@
 package linkedlist;
 
+
+/**
+ *  Test class to check Doubly Linked List
+ * @author roopesh and aerk
+ * 
+ */
+
 public class DoubleLinkedList {
 	
 	
@@ -29,6 +36,8 @@ public class DoubleLinkedList {
 	 Node tail = null;
 	
 	 public void add(String data) {
+		 
+		 //New Node 
 		 Node newNode = new Node (data);
 		 
 		 if(head == null) {
