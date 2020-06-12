@@ -16,7 +16,7 @@ public class BracketChecker {
 	 * is not same as head element of second stack - second stack is not null and
 	 * first stack becomes null
 	 */
-	public static void validateBracketSequence(String sequence) {
+	public static String validateBracketSequence(String sequence) {
 		char[] bracketsArray = sequence.toCharArray();
 		LinkedList<String> bracketSequence = new LinkedList<String>();
 
@@ -42,12 +42,15 @@ public class BracketChecker {
 				}
 			}
 		}
-
+		
+		String message = "";
 		if (secondLL.isEmpty() && !invalidFlag) {
-			System.out.println(sequence + " is valid");
+			message = sequence + " is valid";
 		} else {
-			System.out.println(sequence + " is invalid");
+			message = sequence + " is invalid";
 		}
+		
+		return message;
 	}
 	
 	public static void main(String[] args) {
