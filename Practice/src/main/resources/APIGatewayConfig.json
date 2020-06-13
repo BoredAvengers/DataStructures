@@ -1,0 +1,31 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BracketsAPI",
+    "description": "Created by AWS Lambda",
+    "version": "2020-06-13T07:13:39Z"
+  },
+  "servers": [
+    {
+      "url": "https://n6z5aazm6l.execute-api.ap-south-1.amazonaws.com/{basePath}",
+      "variables": {
+        "basePath": {
+          "default": "/test"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/checksequence": {
+      "x-amazon-apigateway-any-method": {
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "content": {}
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
