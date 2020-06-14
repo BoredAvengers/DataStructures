@@ -9,7 +9,7 @@ phases:
       - java -version
    post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed
       - mvn package   
 artifacts:
   files:
