@@ -8,10 +8,10 @@ phases:
     commands:
       - mvn clean
       - mvn compile
+      - mvn package
   post_build:
     commands:
       - echo Build completed
-      - mvn package
 artifacts:
   files:
     - 'target/Practice-0.0.1-SNAPSHOT.jar'
