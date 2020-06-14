@@ -10,5 +10,5 @@ phases:
       - mvn clean install
 artifacts:
   files:
-    - 'target/DS.jar'
+    - '**/*'
   
