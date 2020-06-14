@@ -7,8 +7,11 @@ phases:
   build:
     commands:
       - java -version
-      - mvn clean install
+  post_build:
+    commands:
+      - echo Build completed
+      - mvn package   
 artifacts:
   files:
-    - '**/*'
+    - 'target/Practice-0.0.1-SNAPSHOT.jar'
   
